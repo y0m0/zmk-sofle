@@ -34,28 +34,40 @@
     macros
     {
         aa_macro: aa_macro {
-            label = 'å';
+            label = "å";
             compatible = "zmk,behavior-macro";
             wait-ms = <30>;
             tap-ms = <40>;
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7>, <&macro_release &kp LALT>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N7>
+                , <&macro_release &kp LALT>
+                ;
         };
         ae_macro: ae_macro {
-            label = 'æ';
+            label = "æ";
             compatible = "zmk,behavior-macro";
             wait-ms = <30>;
             tap-ms = <40>;
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8>, <&macro_release &kp LALT>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N1 &kp KP_N9 &kp KP_N8>
+                , <&macro_release &kp LALT>
+                ;
         };
         oe_macro: oe_macro {
-            label = 'ø';
+            label = "ø";
             compatible = "zmk,behavior-macro";
             wait-ms = <30>;
             tap-ms = <40>;
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6>, <&macro_release &kp LALT>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N1 &kp KP_N6>
+                , <&macro_release &kp LALT>
+                ;
         };
     };
 
