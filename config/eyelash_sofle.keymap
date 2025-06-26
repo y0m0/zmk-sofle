@@ -33,29 +33,38 @@
     macros {
         aa_macro: aa_macro {
             compatible = "zmk,behavior-macro";
-            bindings = <
-                &macro_press &kp LALT
-                &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7
-                &macro_release &kp LALT
-            >;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7 >
+                , <&macro_release &kp LALT>
+                ;
         };
 
         ae_macro: ae_macro {
             compatible = "zmk,behavior-macro";
-            bindings = <
-                &macro_press &kp LALT
-                &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8
-                &macro_release &kp LALT
-            >;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8 >
+                , <&macro_release &kp LALT>
+                ;
         };
 
         oe_macro: oe_macro {
             compatible = "zmk,behavior-macro";
-            bindings = <
-                &macro_press &kp LALT
-                &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6
-                &macro_release &kp LALT
-            >;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6 >
+                , <&macro_release &kp LALT>
+                ;
         };
     };
 
@@ -66,23 +75,27 @@
 
         tap-ms = <100>;
     };
+
     behaviors {
         aa_when_ralt: aa_when_ralt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp BSLH>, <&aa_macro>;
             mods = <(MOD_RALT)>;
         };
+
         ae_when_ralt: ae_when_ralt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp SEMI>, <&ae_macro>;
             mods = <(MOD_RALT)>;
         };
+
         oe_when_ralt: oe_when_ralt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp SQT>, <&oe_macro>;
             mods = <(MOD_RALT)>;
         };
     };
+
     keymap {
         compatible = "zmk,keymap";
 
