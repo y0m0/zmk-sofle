@@ -17,7 +17,7 @@
 
 &msc {
     acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <100>;       // 300
+    time-to-max-speed-ms = <100>;     // 300
     delay-ms = <0>;                   // 0
 };
 
@@ -30,43 +30,23 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
-    macros {
-        aa_macro: aa_macro {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <40>;
-            tap-ms = <40>;
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7 >
-                , <&macro_release &kp LALT>
-                ;
-        };
+    ZMK_MACRO(aa_macro,
+        wait-ms = <30>;
+        tap-ms = <40>;
+        bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7>, <&macro_release &kp LALT>;
+    )
 
-        ae_macro: ae_macro {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <40>;
-            tap-ms = <40>;
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8 >
-                , <&macro_release &kp LALT>
-                ;
-        };
+    ZMK_MACRO(ae_macro,
+        wait-ms = <30>;
+        tap-ms = <40>;
+        bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8>, <&macro_release &kp LALT>;
+    )
 
-        oe_macro: oe_macro {
-            compatible = "zmk,behavior-macro";
-            wait-ms = <40>;
-            tap-ms = <40>;
-            #binding-cells = <0>;
-            bindings
-                = <&macro_press   &kp LALT>
-                , <&macro_tap     &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6 >
-                , <&macro_release &kp LALT>
-                ;
-        };
-    };
+    ZMK_MACRO(oe_macro,
+        wait-ms = <30>;
+        tap-ms = <40>;
+        bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6>, <&macro_release &kp LALT>;
+    )
 
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
