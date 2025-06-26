@@ -1,6 +1,7 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1200  // 600
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 25   // 10
 
+#include "zmk-helpers/helper.h"
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
 #include <behaviors.dtsi>
@@ -30,23 +31,33 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
-    ZMK_MACRO(aa_macro,
-        wait-ms = <30>;
-        tap-ms = <40>;
-        bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7>, <&macro_release &kp LALT>;
-    )
-
-    ZMK_MACRO(ae_macro,
-        wait-ms = <30>;
-        tap-ms = <40>;
-        bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8>, <&macro_release &kp LALT>;
-    )
-
-    ZMK_MACRO(oe_macro,
-        wait-ms = <30>;
-        tap-ms = <40>;
-        bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6>, <&macro_release &kp LALT>;
-    )
+    macros
+    {
+        aa_macro: aa_macro {
+            label = 'å';
+            compatible = "zmk,behavior-macro";
+            wait-ms = <30>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7>, <&macro_release &kp LALT>;
+        };
+        ae_macro: ae_macro {
+            label = 'æ';
+            compatible = "zmk,behavior-macro";
+            wait-ms = <30>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8>, <&macro_release &kp LALT>;
+        };
+        oe_macro: oe_macro {
+            label = 'ø';
+            compatible = "zmk,behavior-macro";
+            wait-ms = <30>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LALT>, <&macro_tap &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6>, <&macro_release &kp LALT>;
+        };
+    };
 
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
@@ -60,19 +71,17 @@
         aa_when_ralt: aa_when_ralt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp BSLH>, <&aa_macro>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_LALT)>;
         };
-
         ae_when_ralt: ae_when_ralt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp SEMI>, <&ae_macro>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_LALT)>;
         };
-
         oe_when_ralt: oe_when_ralt {
             compatible = "zmk,behavior-mod-morph";
             bindings = <&kp SQT>, <&oe_macro>;
-            mods = <(MOD_RALT)>;
+            mods = <(MOD_LALT)>;
         };
     };
 
