@@ -82,16 +82,19 @@
     behaviors {
         aa_when_ralt: aa_when_ralt {
             compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
             bindings = <&kp BSLH>, <&aa_macro>;
             mods = <(MOD_LALT)>;
         };
         ae_when_ralt: ae_when_ralt {
             compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
             bindings = <&kp SEMI>, <&ae_macro>;
             mods = <(MOD_LALT)>;
         };
         oe_when_ralt: oe_when_ralt {
             compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
             bindings = <&kp SQT>, <&oe_macro>;
             mods = <(MOD_LALT)>;
         };
