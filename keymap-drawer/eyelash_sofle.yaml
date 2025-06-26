@@ -26,7 +26,7 @@ layers:
   - I
   - O
   - P
-  - aa when ralt
+  - {t: \, s: '&aa_macro'}
   - $$mdi:keyboard-esc$$
   - A
   - S
@@ -38,8 +38,8 @@ layers:
   - J
   - K
   - L
-  - oe when ralt
-  - ae when ralt
+  - {t: '''', s: '&oe_macro'}
+  - {t: ;, s: '&ae_macro'}
   - $$mdi:apple-keyboard-shift$$
   - Z
   - X
