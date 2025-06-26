@@ -10,7 +10,6 @@
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/outputs.h>
-#include "keys_no.h"
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
@@ -31,6 +30,35 @@
 &soft_off { hold-time-ms = <2000>; };
 
 / {
+    macros {
+        aa_macro: aa_macro {
+            compatible = "zmk,behavior-macro";
+            bindings = <
+                &macro_press &kp LALT
+                &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_7
+                &macro_release &kp LALT
+            >;
+        };
+
+        ae_macro: ae_macro {
+            compatible = "zmk,behavior-macro";
+            bindings = <
+                &macro_press &kp LALT
+                &kp KP_0 &kp KP_1 &kp KP_9 &kp KP_8
+                &macro_release &kp LALT
+            >;
+        };
+
+        oe_macro: oe_macro {
+            compatible = "zmk,behavior-macro";
+            bindings = <
+                &macro_press &kp LALT
+                &kp KP_0 &kp KP_2 &kp KP_1 &kp KP_6
+                &macro_release &kp LALT
+            >;
+        };
+    };
+
     scroll_encoder: scroll_encoder {
         compatible = "zmk,behavior-sensor-rotate";
         #sensor-binding-cells = <0>;
@@ -41,17 +69,17 @@
     behaviors {
         aa_when_ralt: aa_when_ralt {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp BSLH>, <NO_AA_ALT_CODE>;
+            bindings = <&kp BSLH>, <&aa_macro>;
             mods = <(MOD_RALT)>;
         };
         ae_when_ralt: ae_when_ralt {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp SEMI>, <NO_AE_ALT_CODE>;
+            bindings = <&kp SEMI>, <&ae_macro>;
             mods = <(MOD_RALT)>;
         };
         oe_when_ralt: oe_when_ralt {
             compatible = "zmk,behavior-mod-morph";
-            bindings = <&kp SQT>, <NO_OE_ALT_CODE>;
+            bindings = <&kp SQT>, <&oe_macro>;
             mods = <(MOD_RALT)>;
         };
     };
