@@ -150,7 +150,7 @@
 &kp C_MUTE  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2      &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
-            display-name = "layer 0";
+            display-name = "base";
             sensor-bindings = <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
@@ -168,9 +168,9 @@
         };
 
         layer_2 {
-            s = <
-&kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
-&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &trans       &no_ao
+            bindings = <
+&kp TILDE  &bt BT_EL 0   &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
+&trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &no_ao
 &trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &no_oe       &no_ae
 &trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
 &trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
