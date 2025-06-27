@@ -33,10 +33,47 @@
 / {
     macros
     {
-        aa_macro: aa_macro {
+        aa_lowcase: aa_lowcase {
             label = "å";
             compatible = "zmk,behavior-macro";
-            wait-ms = <30>;
+            wait-ms = <40>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N2 &kp KP_N9>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        ae_lowcase: ae_lowcase {
+            label = "æ";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N3 &kp KP_N0>
+                , <&macro_release &kp LALT>
+                ;
+        };
+
+        oe_lowcase: oe_lowcase {
+            label = "ø";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
+            tap-ms = <40>;
+            #binding-cells = <0>;
+            bindings
+                = <&macro_press   &kp LALT>
+                , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N4 &kp KP_N8>
+                , <&macro_release &kp LALT>
+                ;
+        };
+        aa_uppercase: aa_uppercase {
+            label = "Å";
+            compatible = "zmk,behavior-macro";
+            wait-ms = <40>;
             tap-ms = <40>;
             #binding-cells = <0>;
             bindings
@@ -45,10 +82,11 @@
                 , <&macro_release &kp LALT>
                 ;
         };
-        ae_macro: ae_macro {
-            label = "æ";
+        
+        ae_uppercase: ae_uppercase {
+            label = "Æ";
             compatible = "zmk,behavior-macro";
-            wait-ms = <30>;
+            wait-ms = <40>;
             tap-ms = <40>;
             #binding-cells = <0>;
             bindings
@@ -57,10 +95,10 @@
                 , <&macro_release &kp LALT>
                 ;
         };
-        oe_macro: oe_macro {
-            label = "ø";
+        oe_uppercase: oe_uppercase {
+            label = "Ø";
             compatible = "zmk,behavior-macro";
-            wait-ms = <30>;
+            wait-ms = <40>;
             tap-ms = <40>;
             #binding-cells = <0>;
             bindings
@@ -68,6 +106,27 @@
                 , <&macro_tap     &kp KP_N0 &kp KP_N2 &kp KP_N1 &kp KP_N6>
                 , <&macro_release &kp LALT>
                 ;
+        };
+    };
+
+    behaviors {
+        aa_when_alt: aa_when_alt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&aa_lowcase>, <&aa_uppercase>;
+            mods = <(MOD_LSFT)>;
+        };
+        ae_when_alt: ae_when_alt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&ae_lowcase>, <&ae_uppercase>;
+            mods = <(MOD_LSFT)>;
+        };
+        oe_when_alt: oe_when_alt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&oe_lowcase>, <&oe_uppercase>;
+            mods = <(MOD_LSFT)>;
         };
     };
 
@@ -79,37 +138,16 @@
         tap-ms = <100>;
     };
 
-    behaviors {
-        aa_when_ralt: aa_when_ralt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp BSLH>, <&aa_macro>;
-            mods = <(MOD_LALT)>;
-        };
-        ae_when_ralt: ae_when_ralt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SEMI>, <&ae_macro>;
-            mods = <(MOD_LALT)>;
-        };
-        oe_when_ralt: oe_when_ralt {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp SQT>, <&oe_macro>;
-            mods = <(MOD_LALT)>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
         layer_0 {
             bindings = <
-&kp GRAVE   &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9           &kp N0             &kp BACKSPACE
-&kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O            &kp P              &aa_when_ralt
-&kp ESC     &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L            &oe_when_ralt      &ae_when_ralt
-&kp LSHFT   &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT          &kp FSLH           &kp RSHFT
-&kp C_MUTE  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2      &kp RIGHT_ALT    &kp DELETE
+&kp GRAVE   &kp N1     &kp N2        &kp N3        &kp N4  &kp N5       &kp UP_ARROW     &kp N6     &kp N7     &kp N8     &kp N9            &kp N0             &kp BACKSPACE
+&kp TAB     &kp Q      &kp W         &kp E         &kp R   &kp T        &kp DOWN_ARROW   &kp Y      &kp U      &kp I      &kp O             &kp P              &kp BACKSLASH
+&kp ESC     &kp A      &kp S         &kp D         &kp F   &kp G        &kp LEFT_ARROW   &kp H      &kp J      &kp K      &kp L             &kp SEMICOLON      &kp SINGLE_QUOTE
+&kp LSHFT   &kp Z      &kp X         &kp C         &kp V   &kp B        &kp RIGHT_ARROW  &kp N      &kp M      &kp COMMA  &kp DOT           &kp FSLH           &kp RSHFT
+&kp C_MUTE  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mo 1   &kp SPACE    &kp ENTER        &kp SPACE  &kp ENTER  &mo 2      &kp LEFT_BRACKET  &kp RIGHT_BRACKET
             >;
 
             display-name = "layer 0";
@@ -118,7 +156,7 @@
 
         layer_1 {
             bindings = <
-&kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10           &trans
+&kp GRAVE   &kp F1           &kp F2          &kp F3           &kp F4           &kp F5             &mmv MOVE_UP     &kp F6           &kp F7           &kp F8      &kp F9     &kp F10           &DELETE
 &trans      &kp GRAVE        &mkp LCLK       &mkp MCLK        &mkp RCLK        &mkp MB4           &mmv MOVE_DOWN   &kp PG_UP        &kp HOME         &kp UP      &kp END    &kp MINUS         &kp EQUAL
 &trans      &kp TILDE        &trans          &trans           &trans           &mkp MB5           &mmv MOVE_LEFT   &kp PG_DN        &kp LEFT         &kp DOWN    &kp RIGHT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
 &trans      &rgb_ug RGB_OFF  &rgb_ug RGB_ON  &rgb_ug RGB_EFF  &rgb_ug RGB_EFR  &rgb_ug RGB_SPI    &mmv MOVE_RIGHT  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp INSERT  &kp F11    &kp F12           &trans
@@ -130,13 +168,13 @@
         };
 
         layer_2 {
-            bindings = <
+            s = <
 &kp TILDE  &bt BT_SEL 0  &bt BT_SEL 1    &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &mmv MOVE_UP     &kp F6  &kp F7  &kp F8      &kp F9     &kp F10      &trans
 &trans     &bt BT_CLR    &bt BT_CLR_ALL  &trans        &trans        &trans          &mmv MOVE_DOWN   &trans  &trans  &kp F11     &kp F12    &kp UNDER    &kp PLUS
 &trans     &out OUT_USB  &out OUT_BLE    &trans        &trans        &trans          &mmv MOVE_LEFT   &trans  &trans  &trans      &trans     &kp LBRC     &kp RBRC
 &trans     &sys_reset    &trans          &bootloader   &trans        &trans          &mmv MOVE_RIGHT  &trans  &trans  &sys_reset  &soft_off  &bootloader  &trans
 &trans     &trans        &trans          &trans        &trans        &trans          &mkp LCLK        &trans  &trans  &trans      &trans     &trans
-            >;
+
 
             display-name = "layer 2";
             sensor-bindings = <&scroll_encoder>;
