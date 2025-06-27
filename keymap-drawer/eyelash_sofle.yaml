@@ -132,7 +132,7 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   layer 2:
   - '~'
-  - {t: BT EL, h: '0'}
+  - {h: '1', s: '$$mdi:bluetooth-connect$$'}
   - {h: '2', s: '$$mdi:bluetooth-connect$$'}
   - {h: '3', s: '$$mdi:bluetooth-connect$$'}
   - {h: '4', s: '$$mdi:bluetooth-connect$$'}
@@ -155,8 +155,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - F11
   - F12
-  - _
-  - '&no_ao'
+  - {t: '$$mdi:transfer$$', type: trans}
+  - {t: '&aa_lowcase', s: '&aa_uppercase'}
   - {t: '$$mdi:transfer$$', type: trans}
   - OUT USB
   - OUT BLE
