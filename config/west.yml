@@ -8,7 +8,7 @@ manifest:
       # - https://docs.zephyrproject.org/3.5.0/develop/west/manifest.html#projects
     - name: urob
       url-base: https://github.com/urob
-    - name: joelspaldin
+    - name: joelspadin
       url-base: https://github.com/joelspadin
     # - name: gpeye
     #   url-base: https://github.com/GPeye
@@ -21,7 +21,7 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-locales
-      remote: joelspladin
+      remote: joelspadin
       revision: main
     # - name: mario-peripheral-animation
     #   remote: gpeye
