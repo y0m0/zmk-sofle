@@ -156,7 +156,7 @@ layers:
   - F11
   - F12
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '&aa_lowcase', s: '&aa_uppercase'}
+  - '&NB_A_RING'
   - {t: '$$mdi:transfer$$', type: trans}
   - OUT USB
   - OUT BLE
@@ -168,8 +168,8 @@ layers:
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:transfer$$', type: trans}
-  - {t: '&oe_lowcase', s: '&oe_uppercase'}
-  - {t: '&ae_lowcase', s: '&ae_uppercase'}
+  - '&NB_O_SLASH'
+  - '&NB_AE'
   - {t: '$$mdi:transfer$$', type: trans}
   - {t: '$$mdi:backup-restore$$', type: bootloader}
   - {t: '$$mdi:transfer$$', type: trans}
